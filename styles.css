@@ -1,0 +1,12 @@
+*{
+    font-size: .7rem;
+}
+
+.list-of-meds{
+    padding-top: 2rem;
+}
+
+#draw{
+   border: 1px black solid;
+
+}
