@@ -1,7 +1,7 @@
 function qs(selector) {
     return document.querySelector(selector)
 }
-
+const clientName = qs("#client-name")
 const date = qs("#date")
 const clearBtn = qs("#clear")
 
@@ -19,6 +19,8 @@ ctx.fillRect(0,0,canvas.width, canvas.height)
 let DRAW_COLOR = "black"
 let DRAW_WIDTH = "2"
 let isDrawing = false;
+ 
+clientName.addEventListener('input', changeTitle)
 
 clearBtn.addEventListener('click', clearCanvas)
 
@@ -36,6 +38,12 @@ function start(event) {
   ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop)
 
   event.preventDefault()
+}
+
+function changeTitle () {
+  const today = new Date().toLocaleDateString()
+  document.title =  `Medication Delivery Form - ${clientName.value} - ${today}`
+  console.log(document.title)
 }
 
 function draw(event){

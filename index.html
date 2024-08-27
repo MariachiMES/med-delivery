@@ -8,34 +8,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="container">
+
     <header class="text-center">
-        <h3>MEDICATION DELIVERY FORM</h1>
-        <h6>TRUE MENTAL HEALTH SERVICES</h2>
+      <div class="media">
+        <img id = "true" class="align-self-start mr-3" src="./Screenshot 2024-08-27 at 2.38.10 PM.png" alt="Generic placeholder image">
+        
+      </div>
+        <h3 class = "med-sheet">Medication Delivery Form</h3>
     </header>
+    
     <div class="container text-center">
         <div class="row">
           <div class="col">
             <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">Name</span>
-                <input type="text" class="form-control" placeholder="Client's Name" aria-label="Username" aria-describedby="addon-wrapping">
+                <input id='client-name' type="text" class="form-control" placeholder="Client's Name" aria-label="Username" aria-describedby="addon-wrapping">
               </div>
           </div>
           <div class="col">
             Date: <span id="date"></span>
           </div>
         </div>
-        <div class="list-of-meds">
-          <div class="col">
-            1 of 3
+        </div>
+      </div>
+
+      <div class="container medications">
+        <div class="row">
+          <div class="col-sm">
+            One of three columns
           </div>
-          <div class="col">
-            2 of 3
+          <div class="col-sm">
+            One of three columns
           </div>
-          <div class="col">
-            3 of 3
+          <div class="col-sm">
+            One of three columns
           </div>
         </div>
       </div>
+      
 
 
       <canvas id="canvas" width="375" height="100"></canvas>

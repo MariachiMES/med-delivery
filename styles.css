@@ -8,5 +8,19 @@
 
 #canvas{
    border: 1px black solid;
+   margin: 20px;
 
+}
+
+#true {
+    height: 100px;
+    width: auto;
+}
+
+.med-sheet {
+    padding: 20px;
+}
+
+.medications {
+    margin-top: 20px;
 }
