@@ -3,6 +3,7 @@ function qs(selector) {
 }
 
 const date = qs("#date")
+const clearBtn = qs("#clear")
 
 date.innerText = new Date().toLocaleDateString()
 
@@ -18,6 +19,8 @@ ctx.fillRect(0,0,canvas.width, canvas.height)
 let DRAW_COLOR = "black"
 let DRAW_WIDTH = "2"
 let isDrawing = false;
+
+clearBtn.addEventListener('click', clearCanvas)
 
 canvas.addEventListener('touchstart', start, false);
 canvas.addEventListener('touchmove', draw, false)
@@ -36,7 +39,16 @@ function start(event) {
 }
 
 function draw(event){
+  if(event.touches){
+    let touch = event.touches[0]
+    let mouseEvent = new MouseEvent('mousemove', {
+      clientX: touch.clientX,
+      clientY: touch.clientY
+    })
+    canvas.dispatchEvent(mouseEvent)
+  }
   if(isDrawing){
+    console.log(event)
     ctx.lineTo(event.clientX - canvas.offsetLeft,
       event.clientY - canvas.offsetTop)
     ctx.lineCap = 'round'
