@@ -6,55 +6,53 @@ const date = qs("#date")
 
 date.innerText = new Date().toLocaleDateString()
 
-const canvas = document.querySelector('#draw');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth - 10
-canvas.height = window.innerHeight/3
-ctx.strokeStyle = '#BADA55';
-ctx.lineJoin = 'round';
-ctx.lineCap = 'round';
-ctx.lineWidth = 20;
-// ctx.globalCompositeOperation = 'multiply';
+const canvas = qs("#canvas")
 
+canvas.height = 200
+canvas.width = window.innerWidth - 60
+
+const ctx = canvas.getContext('2d')
+ctx.fillStyle = "white"
+ctx.fillRect(0,0,canvas.width, canvas.height)
+
+let DRAW_COLOR = "black"
+let DRAW_WIDTH = "2"
 let isDrawing = false;
-let lastX = 0;
-let lastY = 0;
-let hue = 360;
-let direction = true;
 
-function draw(e) {
-    console.log(e)
-  if (!isDrawing) return; // stop the fn from running when they are not moused down
+canvas.addEventListener('touchstart', start, false);
+canvas.addEventListener('touchmove', draw, false)
+canvas.addEventListener('mousedown', start, false);
+canvas.addEventListener('mousemove', draw, false)
 
-  ctx.strokeStyle = `hsl(${hue}, 100%, 0%)`;
-  ctx.beginPath();
-  console.log('begin stroke')
-  // start from
-  ctx.moveTo(lastX, lastY);
-  // go to
-  ctx.lineTo(e.offsetX, e.offsetY);
-  ctx.stroke();
-  [lastX, lastY] = [e.offsetX, e.offsetY];
- 
+canvas.addEventListener('mouseout', stop, false)
+canvas.addEventListener('touchend', stop, false)
+canvas.addEventListener('mouseup', stop, false)
+function start(event) {
+  isDrawing = true
+  ctx.beginPath()
+  ctx.moveTo(event.clientX - canvas.offsetLeft, event.clientY - canvas.offsetTop)
 
+  event.preventDefault()
 }
 
-canvas.addEventListener('mousedown', (e) => {
-  isDrawing = true;
-  [lastX, lastY] = [e.offsetX, e.offsetY];
-  console.log('drawing')
-});
+function draw(event){
+  if(isDrawing){
+    ctx.lineTo(event.clientX - canvas.offsetLeft,
+      event.clientY - canvas.offsetTop)
+    ctx.lineCap = 'round'
+    ctx.lineJoin = 'round';
+    ctx.stroke()
+  }
+}
 
-canvas.addEventListener('touchstart', (e)=>{
-    isDrawing = true;
-    [lastX, lastY] = [e.offsetX, e.offsetY];
-    console.log('touching')
-})
-
-canvas.addEventListener('touchmove', draw)
-canvas.addEventListener('touchcancel', ()=> isDrawing = false)
-canvas.addEventListener('touchend', ()=> isDrawing = false)
-
-canvas.addEventListener('mousemove', draw);
-canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false);
+function stop(event) {
+  if (isDrawing){
+    ctx.stroke()
+    ctx.closePath()
+    isDrawing = false
+  }
+  event.preventDefault()
+}
+function clearCanvas(){
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+}
