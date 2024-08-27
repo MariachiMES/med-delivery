@@ -9,7 +9,7 @@ date.innerText = new Date().toLocaleDateString()
 
 const canvas = qs("#canvas")
 
-canvas.height = 200
+canvas.height = 100
 canvas.width = window.innerWidth - 60
 
 const ctx = canvas.getContext('2d')

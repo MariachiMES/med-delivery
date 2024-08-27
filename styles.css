@@ -24,3 +24,11 @@
 .medications {
     margin-top: 20px;
 }
+
+.med-name{
+    max-width: 2;
+}
+
+.single-med {
+    margin-top: 10px;
+}
