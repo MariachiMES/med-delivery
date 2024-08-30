@@ -21,11 +21,10 @@
         <div class="row">
           <div class="col">
             <div class="input-group flex-nowrap">
-                <input id='client-name' type="text" class="form-control" placeholder="Client's Name" aria-label="Username" aria-describedby="addon-wrapping">
               </div>
           </div>
           <div class="col">
-            Date: <span id="date"></span>
+            Date Delivered: <div class="d-inline p-2 "><input id ="date"size = "8" type="text" ></div>
           </div>
         </div>
         </div>
@@ -68,11 +67,6 @@
   <div class="d-inline p-2 "><input size="4" type="text" placeholder="QTY"></div>
 </div>
 
-<div class="container single-med">
-<div class="d-inline p-2 "><input size="37" type="text" placeholder="Medication"></div>
-<div class="d-inline p-2 "><input size="7" type="text" placeholder="Dose"></div>
-  <div class="d-inline p-2 "><input size="4" type="text" placeholder="QTY"></div>
-</div>
 
 <div class="container single-med">
 <div class="d-inline p-2 "><input size="37" type="text" placeholder="Medication"></div>
@@ -80,29 +74,33 @@
   <div class="d-inline p-2 "><input size="4" type="text" placeholder="QTY"></div>
 </div>
 
-<div class="container single-med">
-<div class="d-inline p-2 "><input size="37" type="text" placeholder="Medication"></div>
-<div class="d-inline p-2 "><input size="7" type="text" placeholder="Dose"></div>
-  <div class="d-inline p-2 "><input size="4" type="text" placeholder="QTY"></div>
+<div class = "container single-med">
+<div class="d-inline p-2 "><input size = "37"type="text" placeholder = "Medication"></div>
+<div class="d-inline p-2 "><input size = "7" type="text" placeholder = "Dose"></div>
+<div class="d-inline p-2 "><input size = "4" type="text" placeholder = "QTY"></div>
+</div>     
+
+<div class = "container single-med">
+<div class="d-inline p-2 "><input size = "37"type="text" placeholder = "Medication"></div>
+<div class="d-inline p-2 "><input size = "7" type="text" placeholder = "Dose"></div>
+<div class="d-inline p-2 "><input size = "4" type="text" placeholder = "QTY"></div>
+</div>     
+
 </div>
 
-<div class="container single-med">
-<div class="d-inline p-2 "><input size="37" type="text" placeholder="Medication"></div>
-<div class="d-inline p-2 "><input size="7" type="text" placeholder="Dose"></div>
-  <div class="d-inline p-2 "><input size="4" type="text" placeholder="QTY"></div>
 </div>
-
-<div class="container single-med">
-<div class="d-inline p-2 "><input size="37" type="text" placeholder="Medication"></div>
-<div class="d-inline p-2 "><input size="7" type="text" placeholder="Dose"></div>
-  <div class="d-inline p-2 "><input size="4" type="text" placeholder="QTY"></div>
-</div>
-</div>
-      
+  
+<div class="d-inline p-2 "><input id = "client-name" class = "signature" size="30" type="text" placeholder="Client Name"> <button id = "clear" type="button" class="btn btn-dark no-print">Clear Client Signature</button></div>
 
 
       <canvas id="canvas" width="375" height="100"></canvas>
-      <button id = "clear" type="button" class="btn btn-dark">Clear</button>
+      
+      <br>
+      <div class="d-inline p-2 "><input class = "" size="30" type="text" placeholder="Case Manager Name"> <button id = "cm-clear" type="button" class="btn btn-dark no-print">Clear CM Signature</button></div>
+      <br>
+      <canvas id="cm-canvas" width="375" height="100"></canvas>
+      
+      
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

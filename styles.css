@@ -6,7 +6,7 @@
     padding-top: 2rem;
 }
 
-#canvas{
+#canvas, #cm-canvas{
    border: 1px black solid;
    margin: 20px;
 
@@ -31,4 +31,17 @@
 
 .single-med {
     margin-top: 10px;
+}
+
+.signature {
+    margin-top: 10px;
+}
+
+.btn {
+    height: 18px;
+    font-size: .5rem;
+}
+
+#true{
+    height: 50px;
 }
